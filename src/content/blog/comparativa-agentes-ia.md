@@ -1,35 +1,36 @@
 ---
-title: "Comparativa de Agentes de IA para Coding: 30 Propiedades, 1 Ganador"
-description: "GSD v2, Hermes Agent, Claude Code, Codex CLI, OpenCode, Goose, Cline, Aider, OpenClaw — analizados punto por punto"
+title: "Comparativa de Agentes de IA para Coding: 30 Propiedades, 10 Contendientes, 1 Ganador"
+description: "GSD v2, Hermes Agent, Claude Code, Codex CLI, OpenCode, Goose, Cline, Aider, OpenClaw, Letta Code — analizados punto por punto"
 pubDate: 2026-04-09
 category: "AI Research"
-tags: [AI, Agents, Comparison, GSD, Hermes, Claude Code, Codex, OpenCode, OpenClaw]
+tags: [AI, Agents, Comparison, GSD, Hermes, Claude Code, Codex, OpenCode, OpenClaw, Letta Code]
 ---
 
 # Comparativa de Agentes de IA para Coding
 
-9 herramientas. 30 propiedades. 1 ganador.
+10 herramientas. 30 propiedades. 1 ganador.
 
 ## Los Contendientes
 
-| # | Agente | Creador | Tipo |
-|---|--------|---------|------|
-| 1 | **GSD v2** | Tâches (comunidad) | CLI autónomo (Pi SDK) |
-| 2 | **Hermes Agent** | Nous Research | Agente auto-mejorable |
-| 3 | **Claude Code** | Anthropic | CLI agéntico nativo |
-| 4 | **Codex CLI** | OpenAI | CLI ligero |
-| 5 | **OpenCode** | anomalyco (OSS) | CLI model-agnostic |
-| 6 | **Goose** | Block (Square) | Agente extensible |
-| 7 | **Cline** | Cline Bot Inc | IDE agent (VS Code) |
-| 8 | **Aider** | Paul Gauthier | Pair programming CLI |
-| 9 | **OpenClaw** | OpenClaw | Agente personal con memoria |
+| # | Agente | Creador | Tipo | GitHub Stars |
+|---|--------|---------|------|-------------|
+| 1 | **GSD v2** | Tâches (comunidad) | CLI autónomo (Pi SDK) | ~15K |
+| 2 | **Hermes Agent** | Nous Research | Agente auto-mejorable | ~5K |
+| 3 | **Claude Code** | Anthropic | CLI agéntico nativo | ~30K |
+| 4 | **Codex CLI** | OpenAI | CLI ligero | ~67K |
+| 5 | **OpenCode** | anomalyco (OSS) | CLI model-agnostic | ~5K |
+| 6 | **Goose** | Block (Square) | Agente extensible | ~27K |
+| 7 | **Cline** | Cline Bot Inc | IDE agent (VS Code) | ~40K |
+| 8 | **Aider** | Paul Gauthier | Pair programming CLI | ~30K |
+| 9 | **OpenClaw** | OpenClaw | Agente personal con memoria | ~1K |
+| 10 | **Letta Code** | Letta AI | Memory-first coding agent | ~5K |
 
 ## Scoring
 
+- 🏆 = +3 (mejor en clase)
 - ✅ = +2 (feature completa)
 - ⚠️ = +1 (parcial / limitada)
 - ❌ = -1 (no disponible)
-- 🏆 = +3 (mejor en clase)
 
 ---
 
@@ -37,71 +38,71 @@ tags: [AI, Agents, Comparison, GSD, Hermes, Claude Code, Codex, OpenCode, OpenCl
 
 ### 1. Autonomía
 
-| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw |
-|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|
-| Ejecución autónoma | 🏆 | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ |
-| Walk-away (deploy solo) | 🏆 | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ❌ | ❌ | ❌ |
-| Auto-recovery de errores | ✅ | ⚠️ | ✅ | ⚠️ | ⚠️ | ⚠️ | ❌ | ❌ | ❌ |
-| Loop detection | ✅ | ⚠️ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw | Letta Code |
+|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|------------|
+| Ejecución autónoma | 🏆 | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | ✅ |
+| Walk-away (deploy solo) | 🏆 | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ❌ | ❌ | ❌ | ⚠️ |
+| Auto-recovery de errores | ✅ | ⚠️ | ✅ | ⚠️ | ⚠️ | ⚠️ | ❌ | ❌ | ❌ | ⚠️ |
+| Loop detection | ✅ | ⚠️ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ |
 
 ### 2. Memoria y Persistencia
 
-| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw |
-|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|
-| Memoria entre sesiones | ⚠️ | 🏆 | ⚠️ | ❌ | ❌ | ❌ | ⚠️ | ❌ | ✅ |
-| Session search (FTS) | ❌ | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ |
-| Memory files (MD) | ⚠️ | 🏆 | ⚠️ | ❌ | ❌ | ❌ | ⚠️ | ❌ | ✅ |
-| Graph/typed memory | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw | Letta Code |
+|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|------------|
+| Memoria entre sesiones | ⚠️ | 🏆 | ⚠️ | ❌ | ❌ | ❌ | ⚠️ | ❌ | ✅ | 🏆 |
+| Session search (FTS) | ❌ | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ | ✅ |
+| Memory files (MD) | ⚠️ | 🏆 | ⚠️ | ❌ | ❌ | ❌ | ⚠️ | ❌ | ✅ | ✅ |
+| Graph/typed memory | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ |
 
 ### 3. Skills y Mejora
 
-| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw |
-|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|
-| Skills system | ✅ | 🏆 | ⚠️ | ❌ | ❌ | ⚠️ | ❌ | ❌ | ✅ |
-| Skill creation auto | ❌ | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Self-improvement cycle | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ |
-| Skills marketplace | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw | Letta Code |
+|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|------------|
+| Skills system | ✅ | 🏆 | ⚠️ | ❌ | ❌ | ⚠️ | ❌ | ❌ | ✅ | ✅ |
+| Skill creation auto | ❌ | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ |
+| Self-improvement cycle | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ⚠️ | ✅ |
+| Skills marketplace | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 
 ### 4. Modelo y Flexibilidad
 
-| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw |
-|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|
-| Model agnostic | ✅ | ✅ | ❌ | ❌ | 🏆 | ✅ | ✅ | 🏆 | ✅ |
-| Multi-provider routing | ✅ | ⚠️ | ❌ | ❌ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ |
-| Local models (Ollama) | ⚠️ | ⚠️ | ❌ | ❌ | ✅ | ⚠️ | ⚠️ | ✅ | ⚠️ |
-| Custom API endpoints | ✅ | ⚠️ | ❌ | ❌ | 🏆 | ✅ | ✅ | 🏆 | ✅ |
+| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw | Letta Code |
+|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|------------|
+| Model agnostic | ✅ | ✅ | ❌ | ❌ | 🏆 | ✅ | ✅ | 🏆 | ✅ | ✅ |
+| Multi-provider routing | ✅ | ⚠️ | ❌ | ❌ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ✅ |
+| Local models (Ollama) | ⚠️ | ⚠️ | ❌ | ❌ | ✅ | ⚠️ | ⚠️ | ✅ | ⚠️ | ⚠️ |
+| Custom API endpoints | ✅ | ⚠️ | ❌ | ❌ | 🏆 | ✅ | ✅ | 🏆 | ✅ | ✅ |
 
 ### 5. Integración y Plataformas
 
-| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw |
-|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|
-| CLI/Terminal | 🏆 | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| VS Code | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | 🏆 | ❌ | ❌ |
-| Messaging (Telegram/Discord) | ⚠️ | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Multi-platform gateway | ❌ | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw | Letta Code |
+|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|------------|
+| CLI/Terminal | 🏆 | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ✅ | ❌ | ✅ |
+| VS Code | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | 🏆 | ❌ | ❌ | ❌ |
+| Messaging (Telegram/Discord) | ⚠️ | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| Multi-platform gateway | ❌ | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
 
 ### 6. DevOps y Deploy
 
-| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw |
-|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|
-| Git integration | 🏆 | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ | 🏆 | ✅ |
-| Checkpoints/Rollback | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ | ⚠️ | ⚠️ | ❌ |
-| Parallel execution | 🏆 | ⚠️ | ⚠️ | ❌ | ❌ | ⚠️ | ❌ | ❌ | ⚠️ |
-| Cost tracking | ✅ | ❌ | ✅ | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw | Letta Code |
+|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|------------|
+| Git integration | 🏆 | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ | 🏆 | ✅ | ✅ |
+| Checkpoints/Rollback | ✅ | ✅ | ✅ | ❌ | ❌ | ⚠️ | ⚠️ | ⚠️ | ❌ | ⚠️ |
+| Parallel execution | 🏆 | ⚠️ | ⚠️ | ❌ | ❌ | ⚠️ | ❌ | ❌ | ⚠️ | ⚠️ |
+| Cost tracking | ✅ | ❌ | ✅ | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ### 7. Capacidades Extra
 
-| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw |
-|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|
-| Browser automation | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| Voice/TTS | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| MCP support | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ❌ | ✅ |
-| Image generation | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Cron/Scheduled tasks | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| Subagent delegation | ⚠️ | ✅ | ✅ | ❌ | ❌ | ⚠️ | ❌ | ❌ | ✅ |
-| Open source | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Context optimization | 🏆 | ⚠️ | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
-| Spec-driven development | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Propiedad | GSD v2 | Hermes | Claude Code | Codex | OpenCode | Goose | Cline | Aider | OpenClaw | Letta Code |
+|-----------|--------|--------|-------------|-------|----------|-------|-------|-------|----------|------------|
+| Browser automation | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Voice/TTS | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| MCP support | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ❌ | ✅ | ⚠️ |
+| Image generation | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| Cron/Scheduled tasks | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| Subagent delegation | ⚠️ | ✅ | ✅ | ❌ | ❌ | ⚠️ | ❌ | ❌ | ✅ | ✅ |
+| Open source | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Context optimization | 🏆 | ⚠️ | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| Spec-driven development | 🏆 | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 ---
 
@@ -118,6 +119,7 @@ tags: [AI, Agents, Comparison, GSD, Hermes, Claude Code, Codex, OpenCode, OpenCl
 | **Cline** | 0 | 0 | -3 | 5 | 2 | 3 | 3 | **10** |
 | **Aider** | -2 | -3 | -3 | 10 | 2 | 7 | -1 | **10** |
 | **OpenClaw** | 0 | 8 | 5 | 8 | 8 | 3 | 10 | **42** |
+| **Letta Code** | 8 | 12 | 5 | 8 | 3 | 5 | 3 | **44** |
 
 ---
 
@@ -125,35 +127,44 @@ tags: [AI, Agents, Comparison, GSD, Hermes, Claude Code, Codex, OpenCode, OpenCl
 
 **Score: 52 puntos**
 
-### Por qué gana
+### Podio
 
-Hermes no es el mejor en nada individual — es el **meás completo**:
+1. 🥇 **Hermes Agent** (52 pts) — El más completo
+2. 🥈 **Letta Code** (44 pts) — Memory-first, stateful, aprende entre sesiones
+3. 🥉 **OpenClaw** (42 pts) — Mejor para asistente personal con memoria
+4. 🏅 **GSD v2** (40 pts) — Mejor para coding autónomo
+
+### Por qué Hermes gana
 
 - **Memoria** que persiste de verdad (MEMORY.md + USER.md + Session Search)
 - **Skills que se crean solos** — el único que hace esto realmente
 - **Multi-platform** — Telegram, Discord, Slack, WhatsApp, Signal, Email, CLI
 - **Self-improvement** cerrado — aprende de errores y corrige
-- **Open source** — puedes auditarlo todo
+- **Open source** — auditables
 
-### Donde pierde
+### Por qué Letta Code es el nuevo contendiente fuerte
 
-- No es model-agnostic nativo (mejor con modelos Hermes)
-- No tiene context optimization como GSD v2
-- No tiene spec-driven development
-- Autonomía pura limitada vs GSD v2
+Letta Code es el **único que compite de verdad con Hermes en memoria**:
 
-### Podio
+- **Stateful por diseño** — mismo agente entre sesiones, no sesiones independientes
+- **Memoria jerárquica** — blocks editables, `/remember` command, auto-bootstrap
+- **Model agnostic** — Claude, GPT, Gemini, GLM, Kimi, MiniMax
+- **Open source** — puedes self-hostear con Docker
+- **Filosofía**: "Like having a coworker that learns and remembers" vs "meeting a new contractor"
 
-1. 🥇 **Hermes Agent** (52 pts) — El más completo
-2. 🥈 **OpenClaw** (42 pts) — Mejor para asistente personal con memoria
-3. 🥉 **GSD v2** (40 pts) — Mejor para coding autónomo
+Lo que le falta vs Hermes: multi-platform messaging, browser automation, voice, skill creation automática.
 
-### Mención especial
+### Claude Code: Potente pero limitado
 
-- **GSD v2** gana en autonomía de coding y context optimization
-- **OpenClaw** gana en integración con vida personal (messaging, voice, calendar)
-- **Aider/OpenCode** ganan en model flexibility
-- **Cline** gana en IDE integration (VS Code)
+Claude Code (18 pts) es excelente en ejecución — cuando funciona, es el mejor. Pero:
+- **Vendado a Anthropic** — solo Claude models
+- **Sin memoria real** entre sesiones
+- **Closed source** — no puedes auditarlo
+- **Sin multi-platform** — solo terminal y VS Code
+
+### OpenCode: El más flexible pero básico
+
+OpenCode (15 pts) gana en model flexibility pero no tiene memoria, skills, ni autonomía real. Es un buen punto de partida si quieres algo minimal.
 
 ---
 
@@ -161,11 +172,16 @@ Hermes no es el mejor en nada individual — es el **meás completo**:
 
 La lección: **combinar lo mejor de cada uno**
 
-- Memoria de Hermes → Orion ya lo hace con ClawVault
-- Context optimization de GSD → Pendiente
-- Multi-platform de OpenClaw → ✅ Ya
-- Skills auto-creation de Hermes → Próximo milestone
-- Spec-driven de GSD → Evaluar
+| Feature | Fuente | Estado en Orion |
+|---------|--------|-----------------|
+| Memoria persistente | Hermes + Letta | ✅ ClawVault |
+| Skills auto-creation | Hermes | ❌ Pendiente |
+| Multi-platform | OpenClaw | ✅ Telegram, Discord |
+| Context optimization | GSD v2 | ❌ Pendiente |
+| Stateful sessions | Letta Code | ⚠️ Parcial |
+| Model agnostic | OpenCode + Aider | ✅ Multi-provider |
+| Spec-driven dev | GSD v2 | ❌ Evaluar |
+| Self-improvement | Hermes + Letta | ⚠️ Planificado |
 
 ---
 
