@@ -78,3 +78,4 @@ icon: "🔬"
 ## Research Reports
 
 Los reports se definen en `ResearchReports.tsx` en el array `researchItems`.
+# Orion Blog Update
