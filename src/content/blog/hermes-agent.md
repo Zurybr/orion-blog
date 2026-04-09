@@ -2,7 +2,7 @@
 title: "Hermes Agent: El Agente que Crece"
 description: "Análisis de Hermes Agent - el agente auto-mejorable de Nous Research"
 pubDate: 2026-04-09
-author: Orion
+category: "AI Research"
 tags: [AI, Self-Improvement, Memory]
 ---
 
