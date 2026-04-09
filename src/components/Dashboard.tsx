@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-// Types
 interface Activity {
   id: string;
   type: 'skill' | 'deploy' | 'research' | 'lesson' | 'memory';
@@ -13,7 +12,6 @@ interface Activity {
 interface Stat {
   label: string;
   value: string | number;
-  change?: string;
   icon: string;
 }
 
@@ -32,11 +30,10 @@ interface FutureTask {
   status: 'pending' | 'in-progress';
 }
 
-// Sample data - in production this would come from API/JSON
 const stats: Stat[] = [
   { label: 'Skills Creados', value: 9, icon: '🎯' },
   { label: 'Research Papers', value: 5, icon: '📚' },
-  { label: 'Deploys', value: 2, icon: '🚀' },
+  { label: 'Deploys', value: 3, icon: '🚀' },
   { label: 'Lecciones', value: 8, icon: '💡' },
 ];
 
@@ -60,35 +57,34 @@ const recentActivity: Activity[] = [
   {
     id: '3',
     type: 'deploy',
-    title: 'Demo HTML Deploy',
-    description: 'Primer deploy via Dokploy API. nginx:alpine con dominio this-es-demo.e6labs.lat',
-    timestamp: '2026-04-09 04:51',
+    title: 'Orion Blog Deploy',
+    description: 'Blog live en orion.e6labs.lat via Dokploy + GitHub pipeline.',
+    timestamp: '2026-04-09 06:19',
     icon: '🌐',
   },
   {
     id: '4',
     type: 'skill',
     title: 'Identidad Skill-Based',
-    description: 'Migrado de prompt fijo a composición de skills. metacognition, self-evolution, docker-deploy, etc.',
+    description: 'Migrado de prompt fijo a composición de skills.',
     timestamp: '2026-04-09 04:33',
     icon: '⚙️',
   },
   {
     id: '5',
     type: 'lesson',
-    title: 'Session Retrospective',
-    description: 'Documentado qué funcionó y qué no. Lecciones para próxima sesión.',
-    timestamp: '2026-04-09 05:32',
+    title: 'Hermes Agent Research',
+    description: 'Investigado Hermes Agent - el agente que crece. Blueprint para Orion.',
+    timestamp: '2026-04-09 06:26',
     icon: '📝',
   },
 ];
 
 const futureTasks: FutureTask[] = [
-  { id: '1', task: 'Fix demo-html con Docker Hub credentials', priority: 'high', status: 'pending' },
-  { id: '2', task: 'Instalar Tavily CLI y configurar API key', priority: 'high', status: 'pending' },
-  { id: '3', task: 'Investigar primer paper de memoria IA', priority: 'medium', status: 'pending' },
-  { id: '4', task: 'Primer ciclo de self-evolution con DSPy', priority: 'medium', status: 'pending' },
-  { id: '5', task: 'Conectar git repo a Dokploy', priority: 'low', status: 'pending' },
+  { id: '1', task: 'Primer ciclo de self-evolution con DSPy', priority: 'high', status: 'pending' },
+  { id: '2', task: 'Investigar papers de memoria IA', priority: 'medium', status: 'pending' },
+  { id: '3', task: 'Optimizar ClawVault graph', priority: 'medium', status: 'pending' },
+  { id: '4', task: 'Mejorar estilo blog (coffee theme)', priority: 'low', status: 'pending' },
 ];
 
 const researchReports: Report[] = [
@@ -115,24 +111,22 @@ const researchReports: Report[] = [
   },
 ];
 
-// Components
 const StatCard: React.FC<{ stat: Stat }> = ({ stat }) => (
   <div className="stat-card">
     <div className="stat-icon">{stat.icon}</div>
     <div className="stat-content">
       <div className="stat-value">{stat.value}</div>
       <div className="stat-label">{stat.label}</div>
-      {stat.change && <div className="stat-change">{stat.change}</div>}
     </div>
   </div>
 );
 
 const ActivityCard: React.FC<{ activity: Activity }> = ({ activity }) => {
   const typeColors = {
-    skill: '#60a5fa',
-    deploy: '#4ade80',
-    research: '#a78bfa',
-    lesson: '#fbbf24',
+    skill: '#d97706',
+    deploy: '#84cc16',
+    research: '#a8a29e',
+    lesson: '#eab308',
     memory: '#f472b6',
   };
 
@@ -150,9 +144,9 @@ const ActivityCard: React.FC<{ activity: Activity }> = ({ activity }) => {
 
 const TaskItem: React.FC<{ task: FutureTask }> = ({ task }) => {
   const priorityColors = {
-    high: '#f87171',
-    medium: '#fbbf24',
-    low: '#4ade80',
+    high: '#ef4444',
+    medium: '#eab308',
+    low: '#84cc16',
   };
 
   return (
@@ -162,9 +156,6 @@ const TaskItem: React.FC<{ task: FutureTask }> = ({ task }) => {
         style={{ backgroundColor: priorityColors[task.priority] }}
       />
       <span className="task-text">{task.task}</span>
-      {task.status === 'in-progress' && (
-        <span className="task-status">En progreso</span>
-      )}
     </div>
   );
 };
@@ -181,26 +172,19 @@ const ReportCard: React.FC<{ report: Report }> = ({ report }) => (
   </div>
 );
 
-// Main Dashboard
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState<'recent' | 'future' | 'research'>('recent');
-
   return (
     <div className="dashboard">
       <header className="dashboard-header">
         <div>
-          <h1>🧠 Orion Dashboard</h1>
+          <h1>🧠 Orion</h1>
           <p className="dashboard-subtitle">AI Agent · Memory, Research & Self-Evolution</p>
         </div>
         <div className="header-actions">
-          <span className="status-badge">
-            <span className="status-dot"></span>
-            Activo
-          </span>
+          <span className="status-badge">Activo</span>
         </div>
       </header>
 
-      {/* Stats Grid */}
       <section className="stats-section">
         <div className="stats-grid">
           {stats.map((stat, i) => (
@@ -209,12 +193,10 @@ export default function Dashboard() {
         </div>
       </section>
 
-      {/* Main Content */}
       <div className="dashboard-grid">
-        {/* Activity Feed */}
         <section className="activity-section card">
           <div className="section-header">
-            <h2>📡 Actividad Reciente</h2>
+            <h2>Actividad Reciente</h2>
           </div>
           <div className="activity-list">
             {recentActivity.map((activity) => (
@@ -223,12 +205,10 @@ export default function Dashboard() {
           </div>
         </section>
 
-        {/* Right Column */}
         <div className="right-column">
-          {/* Future Tasks */}
           <section className="tasks-section card">
             <div className="section-header">
-              <h2>📋 Próximas Tareas</h2>
+              <h2>Próximas Tareas</h2>
             </div>
             <div className="tasks-list">
               {futureTasks.map((task) => (
@@ -237,10 +217,9 @@ export default function Dashboard() {
             </div>
           </section>
 
-          {/* Quick Research */}
           <section className="research-section card">
             <div className="section-header">
-              <h2>🔬 Research Reports</h2>
+              <h2>Research</h2>
             </div>
             <div className="research-list">
               {researchReports.map((report) => (
@@ -253,12 +232,12 @@ export default function Dashboard() {
 
       <style>{`
         .dashboard {
-          animation: fadeIn 0.5s ease-out;
+          animation: fadeIn 0.3s ease-out;
         }
 
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
 
         .dashboard-header {
@@ -266,37 +245,24 @@ export default function Dashboard() {
           justify-content: space-between;
           align-items: flex-start;
           margin-bottom: 2rem;
+          padding-bottom: 1.5rem;
+          border-bottom: 1px solid var(--border);
         }
 
         .dashboard-subtitle {
           color: var(--text-secondary);
           font-size: 1rem;
+          margin-top: 0.25rem;
         }
 
         .status-badge {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          background: rgba(74, 222, 128, 0.1);
-          border: 1px solid rgba(74, 222, 128, 0.3);
-          padding: 0.5rem 1rem;
+          background: var(--bg-card);
+          border: 1px solid var(--border);
+          padding: 0.375rem 0.875rem;
           border-radius: 2rem;
-          font-size: 0.875rem;
+          font-size: 0.8rem;
           font-weight: 500;
-          color: #4ade80;
-        }
-
-        .status-dot {
-          width: 8px;
-          height: 8px;
-          background: #4ade80;
-          border-radius: 50%;
-          animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
+          color: var(--text-secondary);
         }
 
         .stats-section {
@@ -305,44 +271,40 @@ export default function Dashboard() {
 
         .stats-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
           gap: 1rem;
         }
 
         .stat-card {
           background: var(--bg-card);
           border: 1px solid var(--border);
-          border-radius: 0.75rem;
+          border-radius: 0.5rem;
           padding: 1.25rem;
           display: flex;
           align-items: center;
           gap: 1rem;
-          transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .stat-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
         .stat-icon {
-          font-size: 2rem;
+          font-size: 1.75rem;
         }
 
         .stat-value {
           font-size: 1.75rem;
           font-weight: 700;
           color: var(--text-primary);
+          line-height: 1;
         }
 
         .stat-label {
-          font-size: 0.875rem;
+          font-size: 0.8rem;
           color: var(--text-secondary);
+          margin-top: 0.25rem;
         }
 
         .dashboard-grid {
           display: grid;
-          grid-template-columns: 1fr 400px;
+          grid-template-columns: 1fr 380px;
           gap: 1.5rem;
         }
 
@@ -355,8 +317,8 @@ export default function Dashboard() {
         .card {
           background: var(--bg-card);
           border: 1px solid var(--border);
-          border-radius: 0.75rem;
-          padding: 1.5rem;
+          border-radius: 0.5rem;
+          padding: 1.25rem;
         }
 
         .section-header {
@@ -364,11 +326,9 @@ export default function Dashboard() {
         }
 
         .section-header h2 {
-          font-size: 1.125rem;
+          font-size: 1rem;
           font-weight: 600;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
+          color: var(--text-primary);
         }
 
         .activity-list {
@@ -379,8 +339,8 @@ export default function Dashboard() {
 
         .activity-card {
           background: var(--bg-secondary);
-          border-radius: 0.5rem;
-          padding: 1rem;
+          border-radius: 0.375rem;
+          padding: 0.875rem 1rem;
           border-left: 3px solid var(--accent);
         }
 
@@ -388,16 +348,17 @@ export default function Dashboard() {
           display: flex;
           align-items: center;
           gap: 0.5rem;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.375rem;
         }
 
         .activity-icon {
-          font-size: 1rem;
+          font-size: 0.95rem;
         }
 
         .activity-title {
           font-weight: 600;
           flex: 1;
+          font-size: 0.9rem;
         }
 
         .activity-time {
@@ -406,7 +367,7 @@ export default function Dashboard() {
         }
 
         .activity-desc {
-          font-size: 0.875rem;
+          font-size: 0.825rem;
           color: var(--text-secondary);
           line-height: 1.5;
         }
@@ -414,7 +375,7 @@ export default function Dashboard() {
         .right-column {
           display: flex;
           flex-direction: column;
-          gap: 1.5rem;
+          gap: 1.25rem;
         }
 
         .tasks-list {
@@ -427,65 +388,58 @@ export default function Dashboard() {
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          padding: 0.75rem;
+          padding: 0.625rem 0.75rem;
           background: var(--bg-secondary);
-          border-radius: 0.5rem;
+          border-radius: 0.375rem;
         }
 
         .task-priority {
-          width: 8px;
-          height: 8px;
+          width: 6px;
+          height: 6px;
           border-radius: 50%;
           flex-shrink: 0;
         }
 
         .task-text {
           flex: 1;
-          font-size: 0.875rem;
-        }
-
-        .task-status {
-          font-size: 0.75rem;
-          background: rgba(96, 165, 250, 0.2);
-          color: var(--accent);
-          padding: 0.125rem 0.5rem;
-          border-radius: 1rem;
+          font-size: 0.85rem;
         }
 
         .research-list {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 0.875rem;
         }
 
         .report-card {
           background: var(--bg-secondary);
-          border-radius: 0.5rem;
-          padding: 1rem;
+          border-radius: 0.375rem;
+          padding: 0.875rem;
         }
 
         .report-header {
           display: flex;
           justify-content: space-between;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.375rem;
         }
 
         .report-category {
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           color: var(--accent);
           text-transform: uppercase;
           letter-spacing: 0.05em;
+          font-weight: 600;
         }
 
         .report-date {
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           color: var(--text-muted);
         }
 
         .report-title {
-          font-size: 0.95rem;
+          font-size: 0.9rem;
           font-weight: 600;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.375rem;
         }
 
         .report-summary {
@@ -496,7 +450,7 @@ export default function Dashboard() {
 
         .report-link {
           display: inline-block;
-          margin-top: 0.75rem;
+          margin-top: 0.625rem;
           font-size: 0.8rem;
           color: var(--accent);
         }

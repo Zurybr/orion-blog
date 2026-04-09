@@ -17,14 +17,13 @@ const { Content } = await render(post);
 <BaseLayout title={post.data.title}>
   <article class="post-page">
     <header class="post-header">
-      <a href="/blog" class="back-link">← Volver al Blog</a>
+      <a href="/blog" class="back-link">← Volver</a>
       <div class="post-meta">
-        <span class="post-icon">{post.data.icon || '📄'}</span>
         <span class="post-category">{post.data.category}</span>
         <time class="post-date">
           {post.data.pubDate.toLocaleDateString('es-ES', {
             year: 'numeric',
-            month: 'long',
+            month: 'short',
             day: 'numeric',
           })}
         </time>
@@ -46,25 +45,27 @@ const { Content } = await render(post);
 
 <style>
   .post-page {
-    max-width: 800px;
+    max-width: 720px;
     margin: 0 auto;
-    animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.3s ease-out;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   .post-header {
     margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
   }
 
   .back-link {
     display: inline-block;
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
   }
 
   .back-link:hover {
@@ -74,38 +75,32 @@ const { Content } = await render(post);
   .post-meta {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .post-icon {
-    font-size: 1.25rem;
+    gap: 1rem;
+    margin-bottom: 0.875rem;
   }
 
   .post-category {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--accent);
-    background: rgba(96, 165, 250, 0.15);
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
+    font-weight: 600;
   }
 
   .post-date {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
   }
 
   .post-header h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 0.75rem;
   }
 
   .post-description {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -118,43 +113,44 @@ const { Content } = await render(post);
   }
 
   .tag {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    color: var(--text-secondary);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--bg-secondary);
+    border-radius: 0.25rem;
+    color: var(--text-muted);
   }
 
   .post-content {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
-    padding: 2rem;
+    border-radius: 0.5rem;
+    padding: 1.75rem 2rem;
   }
 
   .post-content :global(h1) {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.875rem;
   }
 
   .post-content :global(h2) {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     margin-top: 1.75rem;
     margin-bottom: 0.75rem;
-    color: var(--accent);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
   }
 
   .post-content :global(h3) {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
   .post-content :global(p) {
     margin-bottom: 1rem;
-    line-height: 1.8;
+    line-height: 1.75;
   }
 
   .post-content :global(ul),
@@ -165,7 +161,7 @@ const { Content } = await render(post);
 
   .post-content :global(li) {
     margin-bottom: 0.5rem;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .post-content :global(code) {
@@ -178,7 +174,7 @@ const { Content } = await render(post);
   .post-content :global(pre) {
     background: var(--bg-secondary);
     padding: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 0.375rem;
     overflow-x: auto;
     margin-bottom: 1rem;
   }
@@ -195,8 +191,27 @@ const { Content } = await render(post);
   .post-content :global(blockquote) {
     border-left: 3px solid var(--accent);
     padding-left: 1rem;
-    margin-left: 0;
+    margin: 1rem 0;
     color: var(--text-secondary);
     font-style: italic;
+  }
+
+  .post-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .post-content :global(th),
+  .post-content :global(td) {
+    padding: 0.625rem 0.875rem;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+
+  .post-content :global(th) {
+    background: var(--bg-secondary);
+    font-weight: 600;
   }
 </style>

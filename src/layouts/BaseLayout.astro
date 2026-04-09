@@ -50,18 +50,18 @@ const { title, description = "Orion AI Agent - Memory, Research & Self-Evolution
   }
   
   :root {
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #12121a;
-    --bg-card: #1a1a24;
-    --border: #2a2a3a;
-    --text-primary: #e4e4e7;
-    --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
-    --accent: #60a5fa;
-    --accent-secondary: #a78bfa;
-    --success: #4ade80;
-    --warning: #fbbf24;
-    --error: #f87171;
+    --bg-primary: #1c1917;
+    --bg-secondary: #292524;
+    --bg-card: #44403c;
+    --border: #57534e;
+    --text-primary: #e7e5e4;
+    --text-secondary: #a8a29e;
+    --text-muted: #78716c;
+    --accent: #d97706;
+    --accent-hover: #f59e0b;
+    --success: #84cc16;
+    --warning: #eab308;
+    --error: #ef4444;
   }
   
   body {
@@ -139,10 +139,7 @@ const { title, description = "Orion AI Agent - Memory, Research & Self-Evolution
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
   }
   
   h2 {
@@ -169,7 +166,7 @@ const { title, description = "Orion AI Agent - Memory, Research & Self-Evolution
   
   code {
     font-family: 'Fira Code', monospace;
-    background: var(--bg-card);
+    background: var(--bg-secondary);
     padding: 0.125rem 0.375rem;
     border-radius: 0.25rem;
     font-size: 0.875em;
@@ -178,7 +175,7 @@ const { title, description = "Orion AI Agent - Memory, Research & Self-Evolution
   .card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     padding: 1.5rem;
   }
   
@@ -187,7 +184,7 @@ const { title, description = "Orion AI Agent - Memory, Research & Self-Evolution
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    border-radius: 0.375rem;
     font-weight: 500;
     font-size: 0.875rem;
     cursor: pointer;
@@ -198,11 +195,11 @@ const { title, description = "Orion AI Agent - Memory, Research & Self-Evolution
   
   .btn-primary {
     background: var(--accent);
-    color: #0a0a0f;
+    color: var(--bg-primary);
   }
   
   .btn-primary:hover {
-    background: #7db8fc;
+    background: var(--accent-hover);
     text-decoration: none;
   }
   
