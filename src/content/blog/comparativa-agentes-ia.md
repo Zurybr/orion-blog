@@ -154,17 +154,57 @@ Letta Code es el **único que compite de verdad con Hermes en memoria**:
 
 Lo que le falta vs Hermes: multi-platform messaging, browser automation, voice, skill creation automática.
 
-### Claude Code: Potente pero limitado
+### Claude Code (18 pts): Potente pero con amnesia
 
-Claude Code (18 pts) es excelente en ejecución — cuando funciona, es el mejor. Pero:
-- **Vendado a Anthropic** — solo Claude models
-- **Sin memoria real** entre sesiones
-- **Closed source** — no puedes auditarlo
-- **Sin multi-platform** — solo terminal y VS Code
+Claude Code es el **mejor ejecutor individual**. Cuando funciona, genera código de mayor calidad que cualquier otro. Pero tiene problemas fundamentales:
 
-### OpenCode: El más flexible pero básico
+**Lo bueno:**
+- Ejecución autónoma de alta calidad
+- Mejor código generado (cuando funciona)
+- Checkpoints + rollback
+- Subagent delegation
+- Loop detection
+- Context optimization
+- MCP support
+- VS Code integration nativa
 
-OpenCode (15 pts) gana en model flexibility pero no tiene memoria, skills, ni autonomía real. Es un buen punto de partida si quieres algo minimal.
+**Lo malo:**
+- ❌ **Solo modelos Anthropic** — vendado a Claude (-4 en categoría modelo)
+- ❌ **Sin memoria entre sesiones** — cada conversación empieza de cero
+- ❌ **Closed source** — no puedes auditar qué hace
+- ❌ **Sin multi-platform** — solo terminal y VS Code
+- ❌ **Sin skills system** real
+- ❌ **Sin browser, voice, image gen, cron**
+
+**El veredicto:** Es como contratar un genio con amnesia. Produce código excelente HOY pero mañana no recuerda nada. Cada sesión es independiente — no aprende, no mejora.
+
+Vs **Letta Code**: hace lo mismo PERO con memoria persistente, model agnostic, y open source.
+Vs **Hermes**: hace todo eso + multi-platform + skills auto-creados + self-improvement.
+
+**Cuándo usarlo:** Si solo necesitas código de alta calidad hoy, sin importar el mañana → Claude Code gana.
+
+### OpenCode (15 pts): El esqueleto más limpio
+
+OpenCode es el CLI más **minimal y flexible** — pero le falta todo lo que hace un agente interesante.
+
+**Lo bueno:**
+- 🏆 **El más model-agnostic** — cualquier provider, cualquier endpoint
+- 🏆 **Custom API endpoints** — conecta lo que quieras
+- ✅ **100% open source** — minimal, hackeable, legible
+- ✅ **Local models (Ollama)** — corre sin internet
+- ✅ **Git integration** básica
+
+**Lo malo:**
+- ❌ **Sin memoria** — cada sesión empieza de cero (-3)
+- ❌ **Sin skills** — no tiene sistema de skills (-3)
+- ❌ **Sin multi-platform** — solo terminal
+- ❌ **Sin browser, voice, image gen, cron**
+- ⚠️ **Autonomía básica** — no es autónomo como GSD v2
+- ⚠️ **Sin checkpoints, sin parallel execution**
+
+**El veredicto:** Es un esqueleto excelente. El CLI más limpio y flexible que existe. Pero le falta todo: memoria, skills, autonomía real. Si quieres algo minimal que conecte a cualquier modelo → OpenCode gana. Si quieres un agente que haga cosas → cualquier otro es mejor.
+
+**En el contexto de Orion:** Interesante como referencia de arquitectura CLI limpia, pero no como agente. Su flexibilidad de modelos ya la tenemos en OpenClaw.
 
 ---
 
